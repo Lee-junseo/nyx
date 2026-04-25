@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        midnight: '#08051A',
+        midnight: '#000000',
         gold: '#FFD700',
       },
       fontFamily: {

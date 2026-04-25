@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 
-const STAR_COUNT = 230
+const STAR_COUNT = 350
 
 function rand(a, b) {
   return a + Math.random() * (b - a)

@@ -57,6 +57,16 @@ export default function App() {
       className="min-h-screen bg-midnight overflow-hidden relative"
       onMouseMove={handleMouseMove}
     >
+      {/* Nebula background layers */}
+      <div className="pointer-events-none absolute inset-0 z-0" style={{
+        background: `
+          radial-gradient(ellipse 80% 55% at 15% 20%, rgba(60,20,120,0.28) 0%, transparent 70%),
+          radial-gradient(ellipse 60% 45% at 85% 75%, rgba(20,40,110,0.22) 0%, transparent 65%),
+          radial-gradient(ellipse 50% 40% at 60% 10%, rgba(90,10,80,0.15) 0%, transparent 60%),
+          radial-gradient(ellipse 70% 50% at 30% 85%, rgba(10,30,90,0.18) 0%, transparent 65%)
+        `
+      }} />
+
       <StarField mousePos={mousePos} />
 
       <main className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4">
