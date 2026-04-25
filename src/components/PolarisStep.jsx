@@ -53,13 +53,13 @@ export default function PolarisStep({ onNext, onBack }) {
               className="font-sans font-bold leading-none text-gold"
               style={{ fontSize: 'clamp(2.8rem, 8vw, 3.8rem)', textShadow: '0 0 24px rgba(255,215,0,0.4)' }}
             >
-              990원
+              1,990원
             </span>
           </div>
 
           {/* 설명 */}
           <p className="text-white/75 font-sans text-sm leading-relaxed">
-            단 990원으로 만나는 인문학적 치유 경험.
+            단 1,990원으로 만나는 인문학적 치유 경험.
             <br />
             <span className="text-white/50 text-xs">(현재 베타 테스트 한정가)</span>
           </p>
