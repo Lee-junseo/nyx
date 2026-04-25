@@ -163,13 +163,6 @@ export default function SuccessStep({ worry }) {
           북극성이 당신에게로 향하고 있습니다.
         </p>
 
-        <div className="mt-10 flex items-center justify-center gap-4">
-          <div className="h-px w-10 bg-gradient-to-r from-transparent to-gold/25" />
-          <p className="text-white/20 text-[11px] font-sans tracking-wider whitespace-nowrap">
-            72시간 이내 서신 도착 예정
-          </p>
-          <div className="h-px w-10 bg-gradient-to-l from-transparent to-gold/25" />
-        </div>
       </motion.div>
     </motion.div>
   )
