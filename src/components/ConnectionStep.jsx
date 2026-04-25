@@ -12,8 +12,8 @@ export default function ConnectionStep({ onSubmit, isSubmitting, onBack }) {
 
   return (
     <StepLayout
-      step={3}
-      total={3}
+      step={5}
+      total={5}
       label="The Connection"
       onNext={() => onSubmit(email)}
       onBack={onBack}

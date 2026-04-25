@@ -8,7 +8,7 @@ export default function CandleStep({ value, onChange, onNext, onBack }) {
   return (
     <StepLayout
       step={1}
-      total={3}
+      total={5}
       label=""
       onNext={onNext}
       onBack={onBack}
@@ -25,9 +25,9 @@ export default function CandleStep({ value, onChange, onNext, onBack }) {
         </div>
 
         <p className="text-white/70 font-sans text-sm leading-relaxed">
-          판단 없이, 있는 그대로 적어주세요.
+          당신의 마음을 직시하는 것은 필요합니다.
           <br />
-          이 공간은 오로지 당신의 것입니다.
+          충분히 바라보시고, 천천히 적어주세요.
         </p>
 
         <div className="relative">

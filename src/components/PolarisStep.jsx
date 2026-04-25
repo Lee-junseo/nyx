@@ -25,7 +25,7 @@ export default function PolarisStep({ onNext, onBack }) {
   return (
     <StepLayout
       step={2}
-      total={3}
+      total={5}
       onNext={onNext}
       onBack={onBack}
       nextLabel="계속하기 →"
@@ -33,10 +33,12 @@ export default function PolarisStep({ onNext, onBack }) {
       <div className="space-y-6">
 
         {/* 메인 카피 */}
-        <h2 className="font-serif text-[1.5rem] md:text-[1.7rem] text-white font-bold leading-[1.5]">
-          철학과 인문학의 시선으로 빚어낸 깊은 통찰을
+        <h2 className="font-serif text-[1.18rem] md:text-[1.35rem] text-white font-bold leading-[1.5]">
+          철학과 인문학의 시선으로
           <br />
-          한 권의 <em className="text-gold not-italic">'NYX 리포트'</em>로 전해드립니다.
+          당신의 고민을 깊게 숙고한 뒤,
+          <br />
+          <em className="text-gold not-italic">'NYX 리포트'</em>로 전해드립니다.
         </h2>
 
         {/* Payment Card */}
@@ -129,7 +131,7 @@ export default function PolarisStep({ onNext, onBack }) {
         <div className="space-y-3">
           <div className="flex gap-3 items-start">
             <span className="text-gold mt-0.5 flex-shrink-0">✦</span>
-            <p className="text-white/75 font-sans text-sm leading-relaxed">
+            <p className="text-white/75 font-sans leading-relaxed" style={{ fontSize: '13px' }}>
               입금이 확인되면 등록하신 이메일로{' '}
               <span className="text-white font-medium">7일 이내</span>에 NYX 리포트가 발송됩니다.
             </p>

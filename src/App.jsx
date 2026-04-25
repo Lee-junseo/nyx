@@ -5,15 +5,22 @@ import StarField from './components/StarField'
 import HeroStep from './components/HeroStep'
 import CandleStep from './components/CandleStep'
 import PolarisStep from './components/PolarisStep'
+import PrivacyStep from './components/PrivacyStep'
+import DepositorStep from './components/DepositorStep'
 import ConnectionStep from './components/ConnectionStep'
 import SuccessStep from './components/SuccessStep'
 
 const RECIPIENT = 'june2003423@gmail.com'
-const STEPS = { HERO: 0, CANDLE: 1, POLARIS: 2, CONNECTION: 3, SUCCESS: 4 }
+const STEPS = { HERO: 0, CANDLE: 1, POLARIS: 2, PRIVACY: 3, DEPOSITOR: 4, CONNECTION: 5, SUCCESS: 6 }
 
 export default function App() {
   const [step, setStep] = useState(STEPS.HERO)
-  const [formData, setFormData] = useState({ worry: '', email: '' })
+  const [formData, setFormData] = useState({
+    worry: '',
+    email: '',
+    depositorName: '',
+    consent: { required: false, dataUse: false, newsletter: false },
+  })
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
   const [isSubmitting, setIsSubmitting] = useState(false)
 
@@ -36,6 +43,10 @@ export default function App() {
           to_email: RECIPIENT,
           user_email: payload.email,
           worry: payload.worry,
+          depositor_name: formData.depositorName,
+          consent_required: formData.consent?.required ? '동의' : '미동의',
+          consent_data_use: formData.consent?.dataUse ? '동의' : '미동의',
+          consent_newsletter: formData.consent?.newsletter ? '동의' : '미동의',
           sent_at: new Date().toLocaleString('ko-KR', {
             year: 'numeric', month: 'long', day: 'numeric',
             hour: '2-digit', minute: '2-digit',
@@ -86,8 +97,25 @@ export default function App() {
           {step === STEPS.POLARIS && (
             <PolarisStep
               key="polaris"
-              onNext={() => setStep(STEPS.CONNECTION)}
+              onNext={() => setStep(STEPS.PRIVACY)}
               onBack={() => setStep(STEPS.CANDLE)}
+            />
+          )}
+          {step === STEPS.PRIVACY && (
+            <PrivacyStep
+              key="privacy"
+              onNext={() => setStep(STEPS.DEPOSITOR)}
+              onBack={() => setStep(STEPS.POLARIS)}
+              onConsent={(consent) => setFormData((d) => ({ ...d, consent }))}
+            />
+          )}
+          {step === STEPS.DEPOSITOR && (
+            <DepositorStep
+              key="depositor"
+              value={formData.depositorName}
+              onChange={(v) => setFormData((d) => ({ ...d, depositorName: v }))}
+              onNext={() => setStep(STEPS.CONNECTION)}
+              onBack={() => setStep(STEPS.PRIVACY)}
             />
           )}
           {step === STEPS.CONNECTION && (
@@ -95,7 +123,7 @@ export default function App() {
               key="connection"
               onSubmit={handleSubmit}
               isSubmitting={isSubmitting}
-              onBack={() => setStep(STEPS.POLARIS)}
+              onBack={() => setStep(STEPS.DEPOSITOR)}
             />
           )}
           {step === STEPS.SUCCESS && (
