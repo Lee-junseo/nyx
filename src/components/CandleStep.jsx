@@ -3,7 +3,7 @@ import StepLayout from './StepLayout'
 
 export default function CandleStep({ value, onChange, onNext, onBack }) {
   const textareaRef = useRef(null)
-  const canProceed = value.trim().length >= 10
+  const canProceed = value.trim().length >= 1
 
   return (
     <StepLayout
@@ -49,11 +49,6 @@ export default function CandleStep({ value, onChange, onNext, onBack }) {
           </span>
         </div>
 
-        {value.length > 0 && value.trim().length < 10 && (
-          <p className="text-white/60 text-xs font-sans">
-            조금 더 이야기해 주세요 (10자 이상)
-          </p>
-        )}
       </div>
     </StepLayout>
   )
