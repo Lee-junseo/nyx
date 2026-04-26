@@ -27,7 +27,7 @@ export default function CandleStep({ value, onChange, onNext, onBack }) {
         <p className="text-white/70 font-sans text-sm leading-relaxed">
           당신의 마음을 직시하는 것은 필요합니다.
           <br />
-          충분히 바라보시고, 천천히 적어주세요.
+          충분히 바라보시고, 천천히 적어주세요. (익명성은 철저하게 보장됩니다.)
         </p>
 
         <div className="relative">

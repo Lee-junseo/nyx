@@ -151,11 +151,15 @@ export default function SuccessStep({ worry }) {
           ✦
         </motion.p>
 
-        <h2 className="font-serif text-[1.9rem] md:text-[2.4rem] text-white/90 font-light leading-[1.35] mb-5">
+        <h2 className="font-serif text-[1.9rem] md:text-[2.4rem] text-white/90 font-light leading-[1.35] mb-4">
           당신의 별자리가
           <br />
           생성되었습니다
         </h2>
+
+        <p className="font-sans font-medium mb-5" style={{ fontSize: '13px', color: '#FFD700' }}>
+          당신의 NYX 리포트는 7일 이내에 이메일로 발송됩니다.
+        </p>
 
         <p className="text-white/42 font-sans text-sm leading-relaxed max-w-xs mx-auto">
           이야기를 들었습니다.
