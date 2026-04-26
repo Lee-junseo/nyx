@@ -35,6 +35,11 @@ export default function CandleStep({ value, onChange, onNext, onBack }) {
             ref={textareaRef}
             value={value}
             onChange={(e) => onChange(e.target.value)}
+            onFocus={() => {
+              setTimeout(() => {
+                textareaRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+              }, 350)
+            }}
             placeholder="지금 이 순간의 감정, 상황, 걱정되는 것들을 자유롭게 적어주세요…"
             rows={6}
             className="input-gold w-full rounded-xl px-4 py-3.5 font-sans text-sm leading-relaxed"

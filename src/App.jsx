@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 import { AnimatePresence } from 'framer-motion'
 import emailjs from '@emailjs/browser'
 import StarField from './components/StarField'
@@ -23,6 +23,18 @@ export default function App() {
   })
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
   const [isSubmitting, setIsSubmitting] = useState(false)
+
+  // 키보드가 열릴 때 실제 보이는 높이를 CSS 변수로 추적
+  useEffect(() => {
+    const vv = window.visualViewport
+    if (!vv) return
+    const update = () => {
+      document.documentElement.style.setProperty('--actual-vh', `${vv.height}px`)
+    }
+    vv.addEventListener('resize', update)
+    update()
+    return () => vv.removeEventListener('resize', update)
+  }, [])
 
   const handleMouseMove = useCallback((e) => {
     setMousePos({
@@ -65,7 +77,8 @@ export default function App() {
 
   return (
     <div
-      className="min-h-screen bg-midnight overflow-hidden relative"
+      className="bg-midnight overflow-x-hidden relative"
+      style={{ minHeight: 'var(--actual-vh, 100svh)' }}
       onMouseMove={handleMouseMove}
     >
       {/* Nebula background layers */}
@@ -80,7 +93,7 @@ export default function App() {
 
       <StarField mousePos={mousePos} />
 
-      <main className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4">
+      <main className="relative z-10 flex flex-col items-center justify-center px-4 py-6" style={{ minHeight: 'var(--actual-vh, 100svh)' }}>
         <AnimatePresence mode="wait">
           {step === STEPS.HERO && (
             <HeroStep key="hero" onStart={() => setStep(STEPS.CANDLE)} />
