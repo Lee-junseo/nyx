@@ -28,6 +28,8 @@ export default function DepositorStep({ value, onChange, onNext, onBack }) {
           실명 대신 원하시는 닉네임으로 입금하셔도 무관합니다.
           <br />
           단 송금 명의와 입력 정보가 반드시 일치해야 합니다.
+          <br />
+          (입금 관련 페이지는 이메일 작성 후에 안내됩니다.)
         </p>
 
         <div>
