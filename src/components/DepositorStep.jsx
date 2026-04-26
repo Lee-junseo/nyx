@@ -18,9 +18,7 @@ export default function DepositorStep({ value, onChange, onNext, onBack }) {
       <div className="space-y-5">
         <div>
           <h2 className="font-serif text-[1.65rem] md:text-3xl text-white font-bold leading-[1.45]">
-            <em className="text-gold not-italic">입금자명</em>을
-            <br />
-            알려주세요.
+            <em className="text-gold not-italic">입금자명</em>을 알려주세요.
           </h2>
         </div>
 
