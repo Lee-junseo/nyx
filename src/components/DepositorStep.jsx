@@ -25,7 +25,7 @@ export default function DepositorStep({ value, onChange, onNext, onBack }) {
         </div>
 
         <p className="text-white/70 font-sans text-sm leading-relaxed">
-          당신의 사유가 안전하게 보호될 수 있도록 익명성을 보장합니다.
+          당신의 고민이 안전하게 보호될 수 있도록 익명성을 보장합니다.
           <br />
           실명 대신 원하시는 닉네임으로 입금하셔도 무관합니다.
           <br />
