@@ -25,9 +25,11 @@ export default function DepositorStep({ value, onChange, onNext, onBack }) {
         </div>
 
         <p className="text-white/70 font-sans text-sm leading-relaxed">
-          정확한 입금 확인을 위해 사용됩니다.
-          <br />
-          통장에 표시되는 이름 그대로 입력해 주세요.
+          당신의 사유가 안전하게 보호될 수 있도록 익명성을 보장합니다.
+          <br /><br />
+          실명 대신 원하시는 닉네임으로 입금하셔도 무관합니다.
+          <br /><br />
+          단 송금 명의와 입력 정보가 반드시 일치해야 합니다.
         </p>
 
         <div>
