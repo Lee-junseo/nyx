@@ -12,7 +12,7 @@ export default function ConnectionStep({ onSubmit, isSubmitting, onBack }) {
 
   return (
     <StepLayout
-      step={5}
+      step={4}
       total={5}
       label="The Connection"
       onNext={() => onSubmit(email)}

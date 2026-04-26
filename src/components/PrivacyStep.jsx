@@ -94,7 +94,7 @@ export default function PrivacyStep({ onNext, onBack, onConsent }) {
 
   return (
     <StepLayout
-      step={3}
+      step={2}
       total={5}
       onNext={handleNext}
       onBack={onBack}

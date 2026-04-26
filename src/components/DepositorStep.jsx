@@ -8,7 +8,7 @@ export default function DepositorStep({ value, onChange, onNext, onBack }) {
 
   return (
     <StepLayout
-      step={4}
+      step={3}
       total={5}
       onNext={onNext}
       onBack={onBack}

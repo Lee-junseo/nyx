@@ -11,7 +11,7 @@ import ConnectionStep from './components/ConnectionStep'
 import SuccessStep from './components/SuccessStep'
 
 const RECIPIENT = 'june2003423@gmail.com'
-const STEPS = { HERO: 0, CANDLE: 1, POLARIS: 2, PRIVACY: 3, DEPOSITOR: 4, CONNECTION: 5, SUCCESS: 6 }
+const STEPS = { HERO: 0, CANDLE: 1, PRIVACY: 2, DEPOSITOR: 3, CONNECTION: 4, SUCCESS: 5, POLARIS: 6 }
 
 export default function App() {
   const [step, setStep] = useState(STEPS.HERO)
@@ -103,22 +103,15 @@ export default function App() {
               key="candle"
               value={formData.worry}
               onChange={(v) => setFormData((d) => ({ ...d, worry: v }))}
-              onNext={() => setStep(STEPS.POLARIS)}
-              onBack={() => setStep(STEPS.HERO)}
-            />
-          )}
-          {step === STEPS.POLARIS && (
-            <PolarisStep
-              key="polaris"
               onNext={() => setStep(STEPS.PRIVACY)}
-              onBack={() => setStep(STEPS.CANDLE)}
+              onBack={() => setStep(STEPS.HERO)}
             />
           )}
           {step === STEPS.PRIVACY && (
             <PrivacyStep
               key="privacy"
               onNext={() => setStep(STEPS.DEPOSITOR)}
-              onBack={() => setStep(STEPS.POLARIS)}
+              onBack={() => setStep(STEPS.CANDLE)}
               onConsent={(consent) => setFormData((d) => ({ ...d, consent }))}
             />
           )}
@@ -140,7 +133,14 @@ export default function App() {
             />
           )}
           {step === STEPS.SUCCESS && (
-            <SuccessStep key="success" worry={formData.worry} />
+            <SuccessStep
+              key="success"
+              worry={formData.worry}
+              onNext={() => setStep(STEPS.POLARIS)}
+            />
+          )}
+          {step === STEPS.POLARIS && (
+            <PolarisStep key="polaris" />
           )}
         </AnimatePresence>
       </main>
