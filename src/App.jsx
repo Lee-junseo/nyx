@@ -11,7 +11,7 @@ import ConnectionStep from './components/ConnectionStep'
 import SuccessStep from './components/SuccessStep'
 
 const RECIPIENT = 'june2003423@gmail.com'
-const STEPS = { HERO: 0, CANDLE: 1, PRIVACY: 2, DEPOSITOR: 3, CONNECTION: 4, SUCCESS: 5, POLARIS: 6 }
+const STEPS = { HERO: 0, CANDLE: 1, PRIVACY: 2, DEPOSITOR: 3, CONNECTION: 4, POLARIS: 5, SUCCESS: 6 }
 
 export default function App() {
   const [step, setStep] = useState(STEPS.HERO)
@@ -72,7 +72,7 @@ export default function App() {
 
     setFormData((d) => ({ ...d, email }))
     setIsSubmitting(false)
-    setStep(STEPS.SUCCESS)
+    setStep(STEPS.POLARIS)
   }
 
   return (
@@ -132,15 +132,14 @@ export default function App() {
               onBack={() => setStep(STEPS.DEPOSITOR)}
             />
           )}
-          {step === STEPS.SUCCESS && (
-            <SuccessStep
-              key="success"
-              worry={formData.worry}
-              onNext={() => setStep(STEPS.POLARIS)}
+          {step === STEPS.POLARIS && (
+            <PolarisStep
+              key="polaris"
+              onNext={() => setStep(STEPS.SUCCESS)}
             />
           )}
-          {step === STEPS.POLARIS && (
-            <PolarisStep key="polaris" />
+          {step === STEPS.SUCCESS && (
+            <SuccessStep key="success" worry={formData.worry} />
           )}
         </AnimatePresence>
       </main>

@@ -4,7 +4,7 @@ import StepLayout from './StepLayout'
 
 const ACCOUNT = '979-071320-01-016'
 
-export default function PolarisStep() {
+export default function PolarisStep({ onNext }) {
   const [copied, setCopied] = useState(false)
 
   const handleCopy = async () => {
@@ -26,6 +26,8 @@ export default function PolarisStep() {
     <StepLayout
       step={5}
       total={5}
+      onNext={onNext}
+      nextLabel="계속하기 →"
     >
       <div className="space-y-6">
 

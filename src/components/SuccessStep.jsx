@@ -1,19 +1,13 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 
 function rand(a, b) {
   return a + Math.random() * (b - a)
 }
 
-export default function SuccessStep({ worry, onNext }) {
+export default function SuccessStep({ worry }) {
   const canvasRef = useRef(null)
   const rafRef = useRef(null)
-  const [showNext, setShowNext] = useState(false)
-
-  useEffect(() => {
-    const t = setTimeout(() => setShowNext(true), 4500)
-    return () => clearTimeout(t)
-  }, [])
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -172,18 +166,6 @@ export default function SuccessStep({ worry, onNext }) {
           <br />
           북극성이 당신에게로 향하고 있습니다.
         </p>
-
-        {showNext && (
-          <motion.button
-            onClick={onNext}
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="mt-8 btn-primary px-8 py-3 rounded-xl font-sans text-[11px] font-medium tracking-[0.18em] uppercase"
-          >
-            입금 안내 확인하기 →
-          </motion.button>
-        )}
 
       </motion.div>
     </motion.div>
